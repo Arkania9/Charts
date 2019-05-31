@@ -50,11 +50,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
         for i in stride(from: 0, to: chart.data?.maxEntryCountSet?.entryCount ?? 0, by: 1)
         {
             
-            let label = "test"
+            let label = xAxis.valueFormatter?.stringForValue(Double(i), axis: xAxis) ?? ""
             
             let angle = (sliceangle * CGFloat(i) + chart.rotationAngle).truncatingRemainder(dividingBy: 360.0)
             
-            let p = center.moving(distance: CGFloat(chart.yRange) * factor + xAxis.labelRotatedWidth / 2.0, atAngle: angle)
+            let p = center.moving(distance: CGFloat(chart.yRange) * factor + (50) / 2.0, atAngle: angle)
             
             drawLabel(context: context,
                       formattedLabel: label,
